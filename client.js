@@ -8,7 +8,10 @@ const client = bedrock.createClient({
 
 // The 'join' event is emitted after the player has authenticated
 // and is ready to recieve chunks and start game packets
-client.on("join", (client) => console.log("Player has joined!"));
+client.on("join", (client) => {
+  console.log("Player has joined!");
+  client.queue("text", { type: "system", message: "test" });
+});
 
 // The 'spawn' event is emitted. The chunks have been sent and all is well.
 client.on("spawn", (client) => console.log("Player has spawned!"));

@@ -11,8 +11,8 @@ client.on("add_player", (packet) => {
     type: "chat",
     needs_translation: false,
     source_name: client.username,
-    xuid: "",
-    platform_chat_id: "",
+    xuid: "aaa",
+    platform_chat_id: "aaa",
     message: `Hey, ${packet.username} just joined!`,
   });
 });

@@ -13,7 +13,7 @@ const bedrock = require("bedrock-protocol");
 const client = bedrock.createClient({
   host: "localhost", // optional
   port: 19131, // optional, default 19132
-  username: "Da1z981", // the username you want to join as, optional if online mode
+  username: "DISCORD", // the username you want to join as, optional if online mode
   offline: true, // optional, default false. if true, do not login with Xbox Live. You will not be asked to sign-in if set to true.
 });
 
@@ -50,11 +50,11 @@ discordClient.on("messageCreate", (message) => {
     client.queue("text", {
       type: "chat",
       needs_translation: false,
-      source_name: author,
+      source_name: client.username,
       xuid: "",
       platform_chat_id: "",
       filtered_message: "",
-      message: content,
+      message: `[${author}] ${content}`,
     });
     console.log("Message sent to Minecraft");
   } else {

@@ -38,7 +38,7 @@ discordClient.on("messageCreate", (message) => {
   // 指定されたチャンネル以外からのメッセージは無視
   if (message.channelId !== process.env.DISCORD_CHANNEL_ID) return;
 
-  // if (message.author.bot) return; // ボットのメッセージは無視
+  if (message.author.bot) return; // ボットのメッセージは無視
 
   console.log(
     `Discord message: ${message.author.username}: ${message.content}`,

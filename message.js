@@ -16,13 +16,9 @@ relay.on("connect", (player) => {
   console.log("新しい接続:", player.connection.address);
 
   player.on("join", () => {
-    sendChatMessage(player, "サーバーへようこそ!");
+    player.queue("text", {
+      type: "system",
+      message: "someone joined the server!",
+    });
   });
 });
-
-function sendChatMessage(player, message) {
-  player.queue("text", {
-    type: "chat",
-    message: message,
-  });
-}

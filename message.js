@@ -21,7 +21,6 @@ relay.on("connect", (player) => {
       player.queue("text", {
         type: "system",
         needs_translation: false,
-        source_name: "Server",
         xuid: "",
         platform_chat_id: "",
         message: `Someone just joined!`,

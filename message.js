@@ -20,7 +20,7 @@ const relay = new Relay({
   },
 });
 
-relay.conLog = console.debug;
+// relay.conLog = console.debug;
 relay.listen();
 
 let minecraftPlayer = null;
@@ -35,21 +35,26 @@ discordClient.on("ready", () => {
 });
 
 discordClient.on("messageCreate", (message) => {
-  if (message.author.bot) return; // ボットのメッセージは無視
+  // 指定されたチャンネル以外からのメッセージは無視
+  if (message.channelId !== process.env.DISCORD_CHANNEL_ID) return;
+
+  // if (message.author.bot) return; // ボットのメッセージは無視
 
   console.log(
     `Discord message: ${message.author.username}: ${message.content}`,
   );
 
+  let author = message.author.username;
+  let content = message.content;
+
   if (minecraftPlayer) {
     minecraftPlayer.queue("text", {
-      type: "chat",
+      type: "system",
       needs_translation: false,
-      source_name: message.author.username,
       xuid: "",
       platform_chat_id: "",
       filtered_message: "",
-      message: message.content,
+      message: `[${author}] ${content}`,
     });
     console.log("Message sent to Minecraft");
   } else {

@@ -49,9 +49,33 @@ function openCustomChest(player) {
 
   player.queue("inventory_content", {
     window_id: 1,
-    input: [
-      { network_id: 0, count: 1, metadata: 0, block_runtime_id: 0 }, // 空のスロット
-      { network_id: 1, count: 64, metadata: 0, block_runtime_id: 0 }, // 石ブロック64個
+    content: [
+      {
+        network_id: 0,
+        count: 1,
+        metadata: 0,
+        has_stack_id: 1,
+        stack_id: 1,
+        block_runtime_id: 0,
+        extra: {
+          has_nbt: 0,
+          can_place_on: [],
+          can_destroy: [],
+        },
+      },
+      {
+        network_id: 1,
+        count: 64,
+        metadata: 0,
+        has_stack_id: 1,
+        stack_id: 2,
+        block_runtime_id: 0,
+        extra: {
+          has_nbt: 0,
+          can_place_on: [],
+          can_destroy: [],
+        },
+      },
       // ... 他のアイテムを追加
     ],
   });

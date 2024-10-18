@@ -13,6 +13,7 @@ client.on("add_player", (packet) => {
     source_name: client.username,
     xuid: "",
     platform_chat_id: "",
+    filtered_message: "",
     message: `Hey, ${packet.username} just joined!`,
   });
 });

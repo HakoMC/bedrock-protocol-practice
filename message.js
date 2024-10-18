@@ -38,20 +38,20 @@ relay.on("connect", (player) => {
 
 function openCustomChest(player) {
   player.queue("container_open", {
-    window_id: 1,
+    window_id: "first",
     window_type: "container",
     coordinates: { x: 0, y: 0, z: 0 },
     runtime_entity_id: -1,
   });
 
-  player.queue("inventory_content", {
-    window_id: 1,
-    input: [
-      { network_id: 0, count: 1, metadata: 0, block_runtime_id: 0 }, // 空のスロット
-      { network_id: 1, count: 64, metadata: 0, block_runtime_id: 0 }, // 石ブロック64個
-      // ... 他のアイテムを追加
-    ],
-  });
+  // player.queue("inventory_content", {
+  //   window_id: 1,
+  //   input: [
+  //     { network_id: 0, count: 1, metadata: 0, block_runtime_id: 0 }, // 空のスロット
+  //     { network_id: 1, count: 64, metadata: 0, block_runtime_id: 0 }, // 石ブロック64個
+  //     // ... 他のアイテムを追加
+  //   ],
+  // });
 }
 
 discordClient.on("ready", () => {

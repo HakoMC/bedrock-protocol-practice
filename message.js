@@ -23,6 +23,7 @@ relay.on("connect", (player) => {
         needs_translation: false,
         xuid: "",
         platform_chat_id: "",
+        filtered_message: "",
         message: `Someone just joined!`,
       });
     }, 10000);

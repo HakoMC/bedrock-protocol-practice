@@ -16,7 +16,7 @@ relay.listen();
 relay.on("connect", (player) => {
   console.log("新しい接続:", player.connection.address);
 
-  player.on("join", (packet) => {
+  player.on("join", () => {
     console.log("Player profile:", player.profile);
     player.queue("text", {
       type: "system",
@@ -24,7 +24,7 @@ relay.on("connect", (player) => {
       xuid: "",
       platform_chat_id: "",
       filtered_message: "",
-      message: `Hey, ${packet.username} just joined!`,
+      message: `Someone just joined!`,
     });
   });
 });

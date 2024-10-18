@@ -18,20 +18,16 @@ relay.on("connect", (player) => {
 
   player.on("join", () => {
     console.log("Player profile:", player.profile);
+  });
 
-    setTimeout(() => {
-      const playerName = player.profile?.name || "Unknown Player";
-      player.queue("text", {
-        type: "chat",
-        needs_translation: false,
-        source_name: "Server",
-        xuid: "",
-        platform_chat_id: "",
-        message: `${playerName} just joined the server!`,
-        chat_parameters: [], // 新しく追加されたフィールド
-        translation_parameters: [], // 新しく追加されたフィールド
-        is_localizable: false, // 新しく追加されたフィールド
-      });
-    }, 1000);
+  player.on("add_player", (packet) => {
+    player.queue("text", {
+      type: "system",
+      needs_translation: false,
+      xuid: "",
+      platform_chat_id: "",
+      filtered_message: "",
+      message: `Hey, ${packet.username} just joined!`,
+    });
   });
 });

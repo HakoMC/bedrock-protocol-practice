@@ -1,3 +1,14 @@
+require("dotenv").config();
+const { Client, GatewayIntentBits } = require("discord.js");
+
+const discordClient = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
+});
+
 const bedrock = require("bedrock-protocol");
 const client = bedrock.createClient({
   host: "localhost", // optional
@@ -17,3 +28,37 @@ client.on("add_player", (packet) => {
     message: `Hey, ${packet.username} just joined!`,
   });
 });
+
+discordClient.on("ready", () => {
+  console.log(`Logged in as ${discordClient.user.tag}!`);
+});
+
+discordClient.on("messageCreate", (message) => {
+  // 指定されたチャンネル以外からのメッセージは無視
+  if (message.channelId !== process.env.DISCORD_CHANNEL_ID) return;
+
+  // if (message.author.bot) return; // ボットのメッセージは無視
+
+  console.log(
+    `Discord message: ${message.author.username}: ${message.content}`,
+  );
+
+  let author = message.author.username;
+  let content = message.content;
+
+  if (client) {
+    client.queue("text", {
+      type: "system",
+      needs_translation: false,
+      xuid: "",
+      platform_chat_id: "",
+      filtered_message: "",
+      message: `[${author}] ${content}`,
+    });
+    console.log("Message sent to Minecraft");
+  } else {
+    console.log("Minecraft player not connected");
+  }
+});
+
+discordClient.login(process.env.DISCORD_TOKEN);

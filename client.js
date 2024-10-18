@@ -7,7 +7,7 @@ const client = bedrock.createClient({
 });
 
 client.on("add_player", (packet) => {
-  client.queue("packet_text", {
+  client.queue("text", {
     type: "chat",
     needs_translation: false,
     source_name: client.username,

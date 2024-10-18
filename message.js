@@ -26,18 +26,6 @@ relay.on("connect", (player) => {
         filtered_message: "",
         message: `Someone just joined!`,
       });
-    }, 5000);
-  });
-  player.on("add_player", (packet) => {
-    setTimeout(() => {
-      player.queue("text", {
-        type: "system",
-        needs_translation: false,
-        xuid: "",
-        platform_chat_id: "",
-        filtered_message: "",
-        message: `${packet.username} just joined!`,
-      });
     }, 7000);
   });
 });

@@ -23,10 +23,6 @@ relay.on("connect", (player) => {
 function sendChatMessage(player, message) {
   player.queue("text", {
     type: "chat",
-    needs_translation: false,
-    source_name: "Server",
-    xuid: "",
-    platform_chat_id: "",
     message: message,
   });
 }

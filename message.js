@@ -18,6 +18,16 @@ relay.on("connect", (player) => {
 
   player.on("join", () => {
     console.log("player joined.");
-    player.queue("text", { type: 6, message: "test" });
+    // player.queue("text", { type: "System", message: "test" });
+  });
+  player.on("add_player", (packet) => {
+    player.queue("text", {
+      type: "chat",
+      needs_translation: false,
+      source_name: player.username,
+      xuid: "",
+      platform_chat_id: "",
+      message: `Hey, ${packet.username} just joined!`,
+    });
   });
 });

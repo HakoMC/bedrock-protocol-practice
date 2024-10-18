@@ -26,6 +26,6 @@ relay.on("connect", (player) => {
         filtered_message: "",
         message: `Someone just joined!`,
       });
-    }, 10000);
+    }, 1000);
   });
 });

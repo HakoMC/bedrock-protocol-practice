@@ -19,3 +19,14 @@ client.on("spawn", (client) => console.log("Player has spawned!"));
 client.on("text", (packet) => {
   console.log("Client got text packet", packet);
 });
+
+client.on("add_player", (packet) => {
+  client.queue("text", {
+    type: "chat",
+    needs_translation: false,
+    source_name: client.username,
+    xuid: "",
+    platform_chat_id: "",
+    message: `Hey, ${packet.username} just joined!`,
+  });
+});

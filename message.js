@@ -18,7 +18,7 @@ relay.on("connect", (player) => {
 
   player.on("join", () => {
     console.log("player joined.");
-    // player.queue("text", { type: "System", message: "test" });
+    player.upstream.queue("text", { type: "System", message: "test" });
   });
   player.on("add_player", (packet) => {
     player.upstream.queue("text", {

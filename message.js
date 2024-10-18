@@ -16,13 +16,6 @@ relay.on("connect", (player) => {
   console.log("新しい接続:", player.connection.address);
 
   player.on("join", () => {
-    player.queue("text", {
-      type: "chat", // または "system"
-      needs_translation: false,
-      source_name: "Server",
-      xuid: "",
-      platform_chat_id: "",
-      message: player.profile.name + " just joined the server!",
-    });
+    console.log("player joined.");
   });
 });

@@ -17,6 +17,21 @@ relay.on("connect", (player) => {
   console.log("新しい接続:", player.connection.address);
 
   player.on("join", () => {
-    console.log("player joined.");
+    console.log("Player profile:", player.profile);
+
+    setTimeout(() => {
+      const playerName = player.profile?.name || "Unknown Player";
+      player.queue("text", {
+        type: "chat",
+        needs_translation: false,
+        source_name: "Server",
+        xuid: "",
+        platform_chat_id: "",
+        message: `${playerName} just joined the server!`,
+        chat_parameters: [], // 新しく追加されたフィールド
+        translation_parameters: [], // 新しく追加されたフィールド
+        is_localizable: false, // 新しく追加されたフィールド
+      });
+    }, 1000);
   });
 });

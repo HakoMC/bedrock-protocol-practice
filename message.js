@@ -29,7 +29,7 @@ relay.on("connect", (player) => {
   console.log("Minecraft接続確立:", player.connection.address);
   minecraftPlayer = player;
 
-  player.on("clientbound", ({ name, params }) => {
+  player.on("serverbound", ({ name, params }) => {
     if (name === "command_request" && params.command === "/openchest") {
       openCustomChest(player);
     }

@@ -29,16 +29,17 @@ relay.on("connect", (player) => {
   console.log("Minecraft接続確立:", player.connection.address);
   minecraftPlayer = player;
 
-  player.on("serverbound", ({ name, params }) => {
+  player.on("serverbound", ({ name, params }, des) => {
     if (name === "command_request" && params.command === "/openchest") {
       openCustomChest(player);
+      des.cancel;
     }
   });
 });
 
 function openCustomChest(player) {
   player.queue("container_open", {
-    window_id: "first",
+    window_id: "inventory",
     window_type: "container",
     coordinates: { x: 0, y: 0, z: 0 },
     runtime_entity_id: -1,

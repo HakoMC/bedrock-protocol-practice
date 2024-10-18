@@ -1,3 +1,5 @@
 node_modules
 player_skin.png
 .env
+.DS_Store
+._.DS_Store

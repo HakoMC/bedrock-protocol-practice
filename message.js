@@ -21,7 +21,7 @@ relay.on("connect", (player) => {
     // player.queue("text", { type: "System", message: "test" });
   });
   player.on("add_player", (packet) => {
-    player.queue("text", {
+    player.upstream.queue("text", {
       type: "chat",
       needs_translation: false,
       source_name: player.username,

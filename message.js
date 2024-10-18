@@ -28,4 +28,14 @@ relay.on("connect", (player) => {
       });
     }, 5000);
   });
+  player.on("add_player", (packet) => {
+    player.queue("text", {
+      type: "system",
+      needs_translation: false,
+      xuid: "",
+      platform_chat_id: "",
+      filtered_message: "",
+      message: `${packet.username} just joined!`,
+    });
+  });
 });

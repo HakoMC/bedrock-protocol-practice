@@ -21,13 +21,15 @@ relay.on("connect", (player) => {
   });
 
   player.on("add_player", (packet) => {
-    player.queue("text", {
-      type: "system",
-      needs_translation: false,
-      xuid: "",
-      platform_chat_id: "",
-      filtered_message: "",
-      message: `Hey, ${packet.username} just joined!`,
-    });
+    setTimeout(() => {
+      player.queue("text", {
+        type: "system",
+        needs_translation: false,
+        xuid: "",
+        platform_chat_id: "",
+        filtered_message: "",
+        message: `Hey, ${packet.username} just joined!`,
+      });
+    }, 5000);
   });
 });

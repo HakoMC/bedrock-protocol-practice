@@ -14,7 +14,7 @@ relay.conLog = console.debug;
 relay.listen();
 
 relay.on("connect", (player) => {
-  player.queue("text", { type: "system", message: "test" });
+  player.write("text", { type: "system", message: "test" });
   console.log("新しい接続:", player.connection.address);
 
   player.on("join", () => {

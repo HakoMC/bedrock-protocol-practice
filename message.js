@@ -16,20 +16,15 @@ relay.listen();
 relay.on("connect", (player) => {
   console.log("新しい接続:", player.connection.address);
 
-  player.on("join", () => {
+  player.on("join", (packet) => {
     console.log("Player profile:", player.profile);
-  });
-
-  player.on("add_player", (packet) => {
-    setTimeout(() => {
-      player.queue("text", {
-        type: "system",
-        needs_translation: false,
-        xuid: "",
-        platform_chat_id: "",
-        filtered_message: "",
-        message: `Hey, ${packet.username} just joined!`,
-      });
-    }, 5000);
+    player.queue("text", {
+      type: "system",
+      needs_translation: false,
+      xuid: "",
+      platform_chat_id: "",
+      filtered_message: "",
+      message: `Hey, ${packet.username} just joined!`,
+    });
   });
 });

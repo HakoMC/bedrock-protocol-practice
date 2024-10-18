@@ -50,11 +50,11 @@ discordClient.on("messageCreate", (message) => {
     client.queue("text", {
       type: "chat",
       needs_translation: false,
-      source_name: `§b${author}`,
+      source_name: author,
       xuid: "",
       platform_chat_id: "",
       filtered_message: "",
-      message: `${content}`,
+      message: content,
     });
     console.log("Message sent to Minecraft");
   } else {

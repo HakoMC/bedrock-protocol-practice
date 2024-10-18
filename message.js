@@ -30,7 +30,7 @@ relay.on("connect", (player) => {
   minecraftPlayer = player;
 
   player.on("serverbound", ({ name, params }) => {
-    if (name === "text" && params.message === "/openchest") {
+    if (name === "command_request" && params.command === "/openchest") {
       openCustomChest(player);
     }
   });

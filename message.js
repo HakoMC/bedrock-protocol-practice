@@ -18,7 +18,7 @@ relay.on("connect", (player) => {
   player.on("join", () => {
     player.queue("text", {
       type: "system",
-      message: "someone joined the server!",
+      message: player.profile.name + " just joined the server!",
     });
   });
 });

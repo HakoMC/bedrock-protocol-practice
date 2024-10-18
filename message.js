@@ -17,7 +17,11 @@ relay.on("connect", (player) => {
 
   player.on("join", () => {
     player.queue("text", {
-      type: "system",
+      type: "chat", // または "system"
+      needs_translation: false,
+      source_name: "Server",
+      xuid: "",
+      platform_chat_id: "",
       message: player.profile.name + " just joined the server!",
     });
   });

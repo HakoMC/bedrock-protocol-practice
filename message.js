@@ -30,9 +30,11 @@ relay.on("connect", (player) => {
   minecraftPlayer = player;
 
   player.on("serverbound", ({ name, params }, des) => {
-    if (name === "command_request" && params.command === "/openchest") {
-      openCustomChest(player);
-      des.cancel;
+    if (name === "command_request") {
+      if (params.command == "/test") {
+        openCustomChest(player);
+        des.canceled = true;
+      }
     }
   });
 });

@@ -48,7 +48,7 @@ discordClient.on("messageCreate", (message) => {
 
   if (client) {
     client.queue("text", {
-      type: "announcement",
+      type: "system",
       needs_translation: false,
       // source_name: client.username,
       xuid: "",

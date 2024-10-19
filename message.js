@@ -41,44 +41,39 @@ relay.on("connect", (player) => {
 
 function openCustomChest(player) {
   player.queue("container_open", {
-    window_id: "1",
+    window_id: 1,
     window_type: "container",
     coordinates: { x: 0, y: 0, z: 0 },
     runtime_entity_id: -1n,
   });
 
-  // player.queue("inventory_content", {
-  //   window_id: 1,
-  //   content: [
-  //     {
-  //       network_id: 0,
-  //       count: 0,
-  //       metadata: 0,
-  //       has_stack_id: 0,
-  //       stack_id: 0,
-  //       block_runtime_id: 0,
-  //       extra: {
-  //         has_nbt: 0,
-  //         can_place_on: [],
-  //         can_destroy: [],
-  //       },
-  //     },
-  //     {
-  //       network_id: 1,
-  //       count: 64,
-  //       metadata: 0,
-  //       has_stack_id: 1,
-  //       stack_id: 1,
-  //       block_runtime_id: 0,
-  //       extra: {
-  //         has_nbt: 0,
-  //         can_place_on: [],
-  //         can_destroy: [],
-  //       },
-  //     },
-  //     // 他のスロットも同様に定義...
-  //   ],
-  // });
+  setTimeout(() => {
+    const emptyInventory = createEmptyInventory(27); // チェストは通常27スロット
+    player.queue("inventory_content", {
+      window_id: 1,
+      content: emptyInventory,
+    });
+  }, 100);
+}
+
+function createEmptyInventory(size) {
+  const inventory = [];
+  for (let i = 0; i < size; i++) {
+    inventory.push({
+      network_id: 0,
+      count: 0,
+      metadata: 0,
+      has_stack_id: 0,
+      stack_id: 0,
+      block_runtime_id: 0,
+      extra: {
+        has_nbt: 0,
+        can_place_on: [],
+        can_destroy: [],
+      },
+    });
+  }
+  return inventory;
 }
 
 discordClient.on("ready", () => {

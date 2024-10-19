@@ -42,11 +42,11 @@ relay.on("connect", (player) => {
 function openCustomChest(player) {
   player.queue("container_open", {
     window_id: 1,
-    window_type: "container",
+    window_type: 0,
     coordinates: {
-      x: player.position.x,
-      y: player.position.y,
-      z: player.position.z,
+      x: 0,
+      y: 0,
+      z: 0,
     },
     runtime_entity_id: -1n,
   });
@@ -64,7 +64,7 @@ function createEmptyInventory(size) {
   const inventory = [];
   for (let i = 0; i < size; i++) {
     inventory.push({
-      network_id: 1,
+      network_id: 42,
       count: 42,
       metadata: 0,
       has_stack_id: 0,

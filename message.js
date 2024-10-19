@@ -60,8 +60,8 @@ function createEmptyInventory(size) {
   const inventory = [];
   for (let i = 0; i < size; i++) {
     inventory.push({
-      network_id: 0,
-      count: 0,
+      network_id: 1,
+      count: 42,
       metadata: 0,
       has_stack_id: 0,
       stack_id: 0,

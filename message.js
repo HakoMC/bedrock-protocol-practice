@@ -43,7 +43,11 @@ function openCustomChest(player) {
   player.queue("container_open", {
     window_id: 1,
     window_type: "container",
-    coordinates: { x: 0, y: 0, z: 0 },
+    coordinates: {
+      x: player.position.x,
+      y: player.position.y,
+      z: player.position.z,
+    },
     runtime_entity_id: -1n,
   });
 

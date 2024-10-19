@@ -41,7 +41,7 @@ relay.on("connect", (player) => {
 
 function openCustomChest(player) {
   player.queue("container_open", {
-    window_id: -24,
+    window_id: 114514,
     window_type: 0,
     coordinates: {
       x: 0,
@@ -53,7 +53,7 @@ function openCustomChest(player) {
 
   const emptyInventory = createEmptyInventory(27);
   player.queue("inventory_content", {
-    window_id: 1,
+    window_id: 114514,
     input: emptyInventory,
     container: { container_id: 7 },
     dynamic_container_size: 42,

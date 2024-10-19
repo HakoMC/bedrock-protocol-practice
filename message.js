@@ -52,10 +52,10 @@ function openCustomChest(player) {
     content: [
       {
         network_id: 0,
-        count: 1,
+        count: 0,
         metadata: 0,
-        has_stack_id: 1,
-        stack_id: 1,
+        has_stack_id: 0,
+        stack_id: 0,
         block_runtime_id: 0,
         extra: {
           has_nbt: 0,
@@ -68,7 +68,7 @@ function openCustomChest(player) {
         count: 64,
         metadata: 0,
         has_stack_id: 1,
-        stack_id: 2,
+        stack_id: 1,
         block_runtime_id: 0,
         extra: {
           has_nbt: 0,
@@ -76,7 +76,7 @@ function openCustomChest(player) {
           can_destroy: [],
         },
       },
-      // ... 他のアイテムを追加
+      // 他のスロットも同様に定義...
     ],
   });
 }

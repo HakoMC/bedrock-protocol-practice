@@ -56,7 +56,7 @@ function openCustomChest(player) {
     window_id: 1,
     input: emptyInventory,
     container: { container_id: 7 },
-    dynamic_container_size: 27,
+    dynamic_container_size: 42,
   });
 }
 

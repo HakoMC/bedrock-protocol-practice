@@ -37,15 +37,19 @@ relay.on("connect", (player) => {
       }
     }
     if (name === "container_close") {
-      des.canceled = true;
+      console.log(params.window_id);
+      console.log(params.window_type);
+      console.log(params.server);
     }
   });
 
-  // player.on("clientbound", ({ name, params }, des) => {
-  //   if (name === "container_close") {
-  //     des.canceled = true;
-  //   }
-  // });
+  player.on("clientbound", ({ name, params }, des) => {
+    if (name === "container_close") {
+      console.log(params.window_id);
+      console.log(params.window_type);
+      console.log(params.server);
+    }
+  });
 });
 
 function openCustomChest(player) {

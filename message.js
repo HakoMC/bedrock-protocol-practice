@@ -36,6 +36,9 @@ relay.on("connect", (player) => {
         des.canceled = true;
       }
     }
+    if (name === "container_close") {
+      des.camceled = true;
+    }
   });
 
   player.on("clientbound", ({ name, params }, des) => {

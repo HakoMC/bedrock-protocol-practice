@@ -36,13 +36,16 @@ relay.on("connect", (player) => {
         des.canceled = true;
       }
     }
-  });
-
-  player.on("clientbound", ({ name, params }, des) => {
     if (name === "container_close") {
       des.canceled = true;
     }
   });
+
+  // player.on("clientbound", ({ name, params }, des) => {
+  //   if (name === "container_close") {
+  //     des.canceled = true;
+  //   }
+  // });
 });
 
 function openCustomChest(player) {

@@ -42,7 +42,7 @@ relay.on("connect", (player) => {
 function openCustomChest(player) {
   player.queue("container_open", {
     window_id: 1,
-    window_type: 0,
+    window_type: -1,
     coordinates: {
       x: 0,
       y: 0,

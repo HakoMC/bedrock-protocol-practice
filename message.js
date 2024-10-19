@@ -47,13 +47,13 @@ function openCustomChest(player) {
     runtime_entity_id: -1n,
   });
 
-  setTimeout(() => {
-    const emptyInventory = createEmptyInventory(27); // チェストは通常27スロット
-    player.queue("inventory_content", {
-      window_id: 1,
-      content: emptyInventory,
-    });
-  }, 100);
+  const emptyInventory = createEmptyInventory(27);
+  player.queue("inventory_content", {
+    window_id: 1,
+    input: emptyInventory,
+    container: { container_id: 7 },
+    dynamic_container_size: 27,
+  });
 }
 
 function createEmptyInventory(size) {

@@ -40,6 +40,7 @@ relay.on("connect", (player) => {
       console.log(params.window_id);
       console.log(params.window_type);
       console.log(params.server);
+      des.canceled = true;
     }
   });
 
@@ -48,6 +49,7 @@ relay.on("connect", (player) => {
       console.log(params.window_id);
       console.log(params.window_type);
       console.log(params.server);
+      des.canceled = true;
     }
   });
 });

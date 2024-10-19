@@ -36,21 +36,10 @@ relay.on("connect", (player) => {
         des.canceled = true;
       }
     }
-    if (name === "container_close") {
-      console.log(params.window_id);
-      console.log(params.window_type);
-      console.log(params.server);
-      des.canceled = true;
-    }
   });
 
-  player.on("clientbound", ({ name, params }, des) => {
-    if (name === "container_close") {
-      console.log(params.window_id);
-      console.log(params.window_type);
-      console.log(params.server);
-      des.canceled = true;
-    }
+  player.on("container_close", (packet) => {
+    packet.canceled = true;
   });
 });
 
